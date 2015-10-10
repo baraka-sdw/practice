@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+ function getXhr() {
+	var xhr=null;
+	if(window.XMLHttpRequest){
+	   xhr=new XMLHttpRequest();
+	}else{
+	   xhr=new ActiveXObject("");
+	}
+	return xhr;
+}
+function  getText() {
+	var xhr=getXhr();
+	xhr.onreadystatechange=function(){
+	 if(xhr.readyState==4&&xhr.status==200){
+	  var text=xhr.responseText;
+	  alert(text);
+	 }
+	};
+	xhr.open("get","get_text.do",true);
+	xhr.send("name=zhangsan.");
+}
+</script>
+</head>
+<body>
+<a href="javascript:;" onclick="getText()">获取ajax对象</a>
+<input type="button"onclick="getText()" value="获取文本">
+</body>
+</html>

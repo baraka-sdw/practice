@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" 
+    content="text/html; charset=UTF-8">
+  	<script type="text/javascript" 
+  	src="js/jquery-1.11.1.js"></script>
+  	<script type="text/javascript">
+  		/*页面加载时需要为两个超链接
+                  注册click事件*/
+  		$(document).ready(function(){
+  			$(".s1").click(function(){
+  				//单击超链接时
+  				//如何如何动作
+  				//1.如何获取到点击的那个超链接
+  				//所在的行中的第一个格里面的id
+  				//this代表当前正在点击的超链接
+  				//parent获取a标记上面的父td节点
+  				//siblings获取父td的其他所有兄弟节点
+  				//eq(0)只获取兄弟节点中的第1个
+  				//text()获取第一个td内的文本  
+  				//于是读取到了雇员的id				
+  				var eId = $(this).parent()
+  				.siblings().eq(0).text();
+  				alert(eId);
+  				//向指定路径发送请求,将eId作为
+  				//参数发送过去
+  				//2.返回得值显示在a标记紧邻的下一个div中
+  				$(this).next().load(
+  					"getEmp.do",
+  					{"eId":eId}
+  				);
+  			});
+  		});  	
+  	</script>  	
+  </head>  
+  <body>
+    <table width="50%" border="1" 
+     	   cellspacing="0" cellpadding="0">
+    	<tr>
+    		<td>员工号</td>
+    		<td>员工姓名</td>
+    		<td>工资明细</td>
+    	</tr>
+    	<tr>
+    		<td>T10001</td>
+    		<td>张三</td>
+    		<td>
+				<a class="s1" href="javascript:;">
+				显示工资明细
+				</a>
+				<div></div>
+			</td>
+    	</tr>
+    	<tr>
+    		<td>T10002</td>
+    		<td>李四</td>
+    		<td>
+				<a class="s1" href="javascript:;">
+				显示工资明细
+				</a>
+				<div></div>
+			</td>
+    	</tr>
+    </table>
+    <div id=""></div>
+  </body>
+</html>

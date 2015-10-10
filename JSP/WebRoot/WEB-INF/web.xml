@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
+	<context-param>
+		<param-name>count</param-name>
+		<param-value>1000</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>web.HelloServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddEmp</servlet-name>
+		<servlet-class>day02.AddEmp</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JDBC</servlet-name>
+		<servlet-class>web.JDBC</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SearchEmp</servlet-name>
+		<servlet-class>day02.SearchEmp</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListEmpServlet</servlet-name>
+		<servlet-class>day02.ListEmpServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Search</servlet-name>
+		<servlet-class>day02.Search</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteEmp</servlet-name>
+		<servlet-class>day02.DeleteEmp</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModifyEmp</servlet-name>
+		<servlet-class>day02.ModifyEmp</servlet-class>
+	</servlet>
+	<!-- <servlet> <servlet-name>TotalServlet</servlet-name> <servlet-class>day02.TotalServlet</servlet-class> 
+		</servlet> -->
+	<servlet>
+		<servlet-name>LifeServlet</servlet-name>
+		<servlet-class>day02.LifeServlet</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>张三</param-value>
+		</init-param>
+		<init-param>
+			<param-name>address</param-name>
+			<param-value>mars</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletContext</servlet-name>
+		<servlet-class>day02.ServletContext</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddCookieServlet</servlet-name>
+		<servlet-class>day02.AddCookieServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ActionServlet</servlet-name>
+		<servlet-class>dao.ActionServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidateCode</servlet-name>
+		<servlet-class>day02.ValidateCode</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CommentServlet</servlet-name>
+		<servlet-class>web.CommentServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>SessionListener</servlet-name>
+    <servlet-class>web.SessionListener</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogOut</servlet-name>
+    <servlet-class>web.LogOut</servlet-class>
+  </servlet>
+
+ <!-- 监听器 -->
+    <listener>
+    <listener-class>web.SessionListener</listener-class>
+    </listener>
+	<filter>
+		<filter-name>ComFilter</filter-name>
+		<filter-class>web.ComFilter</filter-class>
+		<init-param>
+			<param-name>illeagerStr</param-name>
+			<param-value>damn</param-value>
+		</init-param>
+		<init-param>
+		<param-name>length</param-name>
+		<param-value>3</param-value>
+		</init-param>
+	</filter>
+    
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddEmp</servlet-name>
+		<url-pattern>/AddEmp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JDBC</servlet-name>
+		<url-pattern>/JDBC</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SearchEmp</servlet-name>
+		<url-pattern>/SearchEmp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListEmpServlet</servlet-name>
+		<url-pattern>/ListEmpServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Search</servlet-name>
+		<url-pattern>/Search</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteEmp</servlet-name>
+		<url-pattern>/DeleteEmp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModifyEmp</servlet-name>
+		<url-pattern>/ModifyEmp</url-pattern>
+	</servlet-mapping>
+	<!-- <servlet-mapping> <servlet-name>TotalServlet</servlet-name> <url-pattern>/add.do</url-pattern> 
+		<url-pattern>/list.do</url-pattern> <url-pattern>/modify.do</url-pattern> 
+		<url-pattern>/delete.do</url-pattern> </servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>LifeServlet</servlet-name>
+		<url-pattern>/life</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletContext</servlet-name>
+		<url-pattern>/ServletContext</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddCookieServlet</servlet-name>
+		<url-pattern>/AddCookieServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ActionServlet</servlet-name>
+		<!--只要uri中后缀是do的，都将交给ActionServlet类来处理 -->
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidateCode</servlet-name>
+		<url-pattern>/code</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CommentServlet</servlet-name>
+		<url-pattern>/comment</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionListener</servlet-name>
+    <url-pattern>/SessionListener</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogOut</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+	<filter-mapping>
+		<filter-name>ComFilter</filter-name>
+		<url-pattern>/comment</url-pattern>
+	</filter-mapping>
+</web-app>

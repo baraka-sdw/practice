@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>02.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="content-type" content="text/html; charset=gbk">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body bgcolor="#ffffff"
+	onLoad="rad();ob();setInterval('showDots()',10);moveBody()">
+	<script language="JavaScript">
+	<!--
+		loc = 0
+		move = 2
+		var xx
+		function setDistance(r) {
+			clearTimeout(xx)
+			move = r
+			if (move != 0)
+				moveBody()
+		}
+		b = 20
+		function moveBody() {
+			loc += move
+			for (k = 1; k < 7; k++) {
+				bod = "bod" + k;
+				if (document.all) {
+					eval(bod + ".style.left=" + (b + loc))
+				}
+				if (document.layers) {
+					eval("document." + bod + ".left=" + (b + loc));
+				}
+			}
+			setCircle()
+			legL()
+			legR()
+
+			xx = setTimeout("moveBody()", 20)
+		}
+
+		pX = 20;
+		pY = 60
+		obs = new Array(13)
+		function ob() {
+			for (i = 0; i < 13; i++) {
+				if (document.all)
+					obs[i] = new Array(eval('ob' + i).style, -100, -100)
+				else
+					obs[i] = new Array(eval('document.ob' + i), -100, -100)
+			}
+		}
+
+		function showDots() {
+			for (i = 0; i < 7; i++) {
+				obs[i][0].left = obs[i][1] + pX
+				obs[i][0].top = obs[i][2] + pY
+			}
+			for (i = 7; i < 13; i++) {
+				obs[i][0].left = obs[i][1] + pX
+				obs[i][0].top = obs[i][2] + pY - 30
+			}
+
+		}
+
+		c = 1
+		var xL = 33
+		function legL() {
+			xL += c
+
+			for (m = 4; m < 7; m++) {
+				obs[m][1] = Math.sin(Math.PI * xL / 30) * (33 - (m - 4) * 11)
+						+ loc;
+				obs[m][2] = -Math.cos(Math.PI * xL / 30) * (33 - (m - 4) * 11);
+			}
+			for (i = 10; i < 13; i++) {
+				obs[i][1] = Math.sin(Math.PI * xL / 30) * (33 - (i - 10) * 11)
+						+ loc;
+				obs[i][2] = -Math.cos(Math.PI * xL / 30) * (33 - (i - 10) * 11);
+			}
+
+		}
+		xR = 27
+
+		function legR() {
+
+			xR -= c
+			if (xR == 25)
+				c -= 2
+			if (xR == 35)
+				c += 2
+			for (i = 1; i < 4; i++) {
+				obs[i][1] = Math.sin(Math.PI * xR / 30) * (33 - (i - 1) * 11)
+						+ loc;
+				obs[i][2] = -Math.cos(Math.PI * xR / 30) * (33 - (i - 1) * 11);
+			}
+			for (i = 7; i < 10; i++) {
+				obs[i][1] = Math.sin(Math.PI * xR / 30) * (33 - (i - 7) * 11)
+						+ loc;
+				obs[i][2] = -Math.cos(Math.PI * xR / 30) * (33 - (i - 7) * 11);
+			}
+		}
+
+		//head
+		var dot = 9
+		rads = new Array(9)
+		function rad() {
+			for (i = 1; i < dot; i++) {
+				if (document.all)
+					rads[i] = new Array(eval('rad' + i).style, -100, -100)
+				else
+					rads[i] = new Array(eval('document.rad' + i), -100, -100)
+			}
+			setRad()
+		}
+
+		function setCircle() {
+			for (o = 1; o < dot; o++) {
+				rads[o][0].left = rads[o][1] + 20 + loc
+				rads[o][0].top = rads[o][2]
+			}
+		}
+
+		function setRad() {
+			for (i = 1; i < dot; i++) {
+				rads[i][1] = Math.sin(Math.PI * (i / ((dot - 1) / 2))) * 10;
+				rads[i][2] = -Math.cos(Math.PI * (i / ((dot - 1) / 2))) * 10;
+			}
+			setCircle()
+		}
+	//-->
+	</script>
+	<div id="text" style="position:absolute;left:320;top:200;z-index:8">
+		<a HREF="javascript:setDistance(2)">向前走</a> <a
+			HREF="javascript:setDistance(-2)">向后走</a> <a
+			HREF="javascript:setDistance(0)">停止</a>
+	</div>
+	<div id="bod1" style="position:absolute;left:20;top:20;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="bod2" style="position:absolute;left:20;top:30;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="bod3" style="position:absolute;left:20;top:40;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="bod4" style="position:absolute;left:20;top:50;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="bod5" style="position:absolute;left:20;top:60;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="bod6" style="position:absolute;left:25;top:15;z-index:8">
+		<font SIZE="-5" COLOR="#0080C0"><b> o</b></font>
+	</div>
+	<div id="ob0" style="position:absolute;left:-20;top:-20;z-index:1">
+
+	</div>
+	<div id="ob1" style="position:absolute;left:-20;top:-20;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>._</b></font>
+	</div>
+	<div id="ob2" style="position:absolute;left:-20;top:-20;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="ob3" style="position:absolute;left:-20;top:-20;z-index:8">
+		<font SIZE="+3" COLOR="#0000FF"><b>.</b></font>
+	</div>
+	<div id="ob4" style="position:absolute;left:-20;top:-20;z-index:8">
+		<font SIZE="+3" COLOR="#00ffFF"><b>._</b></font>
+	</div>
+	<div id="ob5" style="position:absolute;left:-20;top:-20;z-index:8">
+		<font SIZE="+3" COLOR="#00ffff"><b>.</b></font>
+	</div>
+	<div id="ob6" style="position:absolute;left:-20;top:-20;z-index:7">
+		<font SIZE="+3" COLOR="#00ffff"><b>.</b></font>
+	</div>
+	<div id="ob7" style="position:absolute;left:-20;top:-20;z-index:7">
+		<font SIZE="+3" COLOR="#00ffff"><b>.</b></font>
+	</div>
+	<div id="ob8" style="position:absolute;left:-20;top:-20;z-index:7">
+		<font SIZE="+3" COLOR="#00ffff"><b>.</b></font>
+	</div>
+	<div id="ob9" style="position:absolute;left:-20;top:-20;z-index:7">
+		<font SIZE="+3" COLOR="#00ffff"><b>.</b></font>
+	</div>
+	<div id="ob10" style="position:absolute;left:-20;top:-20;z-index:9">
+		<font SIZE="+3" COLOR="#ff0000"><b>.</b></font>
+	</div>
+	<div id="ob11" style="position:absolute;left:-20;top:-20;z-index:9">
+		<font SIZE="+3" COLOR="#FF0000"><b>.</b></font>
+	</div>
+	<div id="ob12" style="position:absolute;left:-20;top:-20;z-index:9">
+		<font SIZE="+3" COLOR="#FF0000"><b>.</b></font>
+	</div>
+	<div id="rad0" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:1"></div>
+	<div id="rad1" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:8">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="rad2" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:8">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="rad3" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:8">
+		<font color="#000000" size="2"><b><br> -</b></font>
+	</div>
+	<div id="rad4" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:8">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="rad5" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:8">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="rad6" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:7">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="rad7" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:7">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="rad8" class="num"
+		style="position:absolute;left:-20;top:-20;z-index:7">
+		<font color="#000000" size="+3"><b>.</b></font>
+	</div>
+	<div id="note" style="position:absolute; left:20px; top:150px;">
+		<font color="#000000"><b><br> </b></font>
+	</div>
+
+</body>
+</html>

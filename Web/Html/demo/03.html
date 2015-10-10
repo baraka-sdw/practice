@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="content-type" content="text/html; charset=gbk">
+    <script type="text/javascript">
+     function createTable(){
+     var p=document.getElementById("1");
+       var table=document.createElement("table"); 
+       p.appendChild(table);
+       for (var int = 0; int < 3; int++) {
+       var tr=document.createElement("tr");//不能复用
+       table.appendChild(tr);
+       for (var int2 = 0; int2 < 2; int2++) {
+		var td=document.createElement("td");
+       var text=document.createTextNode("文本节点");
+		tr.appendChild(td);
+		td.appendChild(text);
+	           }
+	       }
+       }
+    </script>
+
+  </head>
+  
+  <body>
+  <p id="1"><input type="button" value="动态创建表格" onclick="createTable()"/></p>
+  
+  </body>
+</html>

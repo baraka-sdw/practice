@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script type="text/javascript" src="F:/html/jquery.js"></script>
+  <script type="text/javascript" src="F:/html/qrcode.min.js"></script>
+    <title>d1.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset="gbk">
+    <style type="text/css">
+      h1{
+       color:blue;
+       font-size:60px;
+       font-style: oblique;
+       font-weight: 100;
+       font-stretch: wider;
+       border-bottom-color: black;
+       border: gray;
+      }
+      p{
+      color: green;
+      }
+      .a,a{
+       color:navy;
+       font-size: 100px;
+      }
+      #b{
+      font-size:20px;
+      color: orange;
+      }
+      #div p,h1,span,label{
+      border: 1px solid red;
+      border-bottom-style: ridge;
+        font-weight:bold;
+        font-size:11pt;
+        color:blue !important;
+        font-family:微软雅黑;
+         background: #ffffff;
+
+      }
+     body{
+     width:300px;
+     height:300px;
+     background-color:aqua;
+    
+      margin:0 auto;
+      font-family : Arial, Verdana, Lucida Sans, Helvetica, sans-serif;
+      border-top:10px,dotted,black;
+ } 
+  a:HOVER{
+   color:green;
+   text-decoration: inherit;
+} 
+ a:ACTIVE {
+	color:red;
+}
+ a:LINK {
+	font-size: 10pt;
+}
+input:FOCUS {
+	color:rgb(150,200,50);
+   text-decoration: inherit;
+   background-color: blue;
+   widows:inherit;
+}
+    </style>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  </head>
+  
+  <body>
+  <a href="#">上一页</a>&nbsp;
+  <a href="#">1</a>&nbsp;
+  <a href="#">2</a>&nbsp;
+  <a href="#">3</a>&nbsp;
+  <a href="#">4</a>&nbsp;
+  <a href="#">5</a>&nbsp;
+  <a href="#">下一页</a>&nbsp;
+  <input type="button" value="增加">
+  <xmp></xmp>
+   <div id="div"> <h1>标题1 </h1>
+    <p>段落1</p>
+    <h1>标题2</h1>
+    <p>段落2</p>
+    <span class="a">标题3</span> <br>
+    <label id="b">段落3</label></div>
+    <a href="#" >首页</a><textarea rows="4" cols="3"></textarea>
+     <div id="qrcode"></div>
+      <script type="text/javascript">
+    $("#qrcode").qrcode("abcd");
+</script>
+  </body>
+  
+</html>

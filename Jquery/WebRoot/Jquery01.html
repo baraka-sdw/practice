@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/qrcode.min.js"></script>
+<script type="text/javascript" src="js/spin.js"></script>
+<script type="text/javascript">
+   $(function(){
+    $("#d2").load("getInfo.do","");
+     $("a").mouseover(function(){
+     $(this).addClass("s1");
+     });
+      $("a").mouseleave(function(){
+     $(this).removeClass("s1");
+     });
+	 $("a").click(function(e){
+	   alert("点击了a");
+	   e.stopPropagation();
+	 });
+	  $("div").click(function(){
+	   alert("div");
+	 });
+	});
+     //$(function(){
+	  //alert($("ul li").length);
+	 //});
+    function start() {
+    $(function(){
+		$("#d1").animate({'left':'300px','top':'400px',"opacity":"toggle"},2000);
+	});
+	end();
+	}
+	function end() {
+	  $(function(){
+		$("#d1").animate({'left':'500px'},2000);
+			});
+		third();
+	  }
+	  function third() {
+	  $(function(){
+		$("#d1").animate({"top":"100px","opacity":"toggle"},2000);
+			});
+		start();
+	  }
+	  
+	 start();
+	function f() {
+		if ($("#pd").val() == 0) {
+			$("#u1").hide(2000);
+			$("#pd").val(1);
+		} else {
+			$("#u1").show(2000);
+			$("#pd").val(0);
+		}
+		$("li:first").css("color", "red");
+		$("ul li").css("font-size", "30px");
+		var i=0;
+		$("li:last").append("<li>赵"+(i+=i++)+"</li>");
+		//$("#qrcode").qrcode("sdw");
+		$("#pd").hide(1000);
+	}
+	function f2() {
+		var opts = {
+		    lines: 8, 
+            length: 5, 
+            width: 5, 
+            radius: 10, 
+            color: 'orange', 
+            speed: 0.2, 
+            trail: 100, 
+            shadow: true
+		};
+		var spinner=new Spinner(opts).spin(document.getElementById("spin"));
+		$("#spin").append(spinner);
+	}
+	
+	//setInterval($(function(){
+	// $("#d1").animate({'left':'300px','top':'400px'},1000,$("#d1").animate({'left':'500px'}),1000,$("#d1").animate({"top":"100px"}),1000);
+	//}), 1000);
+	
+	
+</script>
+<style type="text/css">
+#d1{
+    width:50px;
+    height: 50px;
+    background-color: red;
+    left:50px;
+    top:40px;
+    position: absolute;
+}
+.s1{
+    cursor: help;
+    color: red;
+    border:solid blue 2px;
+}
+</style>
+</head>
+<body>
+	<ul id="u1">
+		<li id="l1">张三</li>
+		<li id="l2">李四</li>
+		<li id="l3">王五</li>
+	</ul>
+	<input type="button" id="b" onclick="f()" value="按钮1"> 
+	<h1 id="pd">0</h1>
+	<div id="qrcode"></div>
+	<div id="spin"></div>
+	<div  id="d1"></div><br/>
+	
+	<input type="button" onclick="f2()" value="按钮2">
+	<div style="width:200px;height:200px;border:solid red 2px"><a href="javascript:;">链接</a></div><br/>
+	<div  id="d2" style="color:green">123</div>
+</body>
+</html>

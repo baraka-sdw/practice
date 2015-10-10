@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>js.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="content-type" content="text/html; charset=gbk">
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+	var str1 = '你是字符1 ';
+	var str2 = "<br>你是字符2";
+	document.write(str1);
+	document.write(str2);
+	if (0) {
+		document.write('<p>0是真</p>')
+	} else {
+		document.write('<p>0是假</p>')
+	}
+	if (0.0) {
+		document.write('<p>0.0是真</p>')
+	} else {
+		document.write('<p>0.0是假</p>')
+	}
+	if (-30.0) {
+		document.write('<p>-30.0是真</p>')
+	} else {
+		document.write('<p>-30.0是假</p>')
+	}
+
+	var a = true;
+	var b = 1;
+	var c = "sdw";
+	document.write(a + b + "<br>");
+	document.write(b + b + "<br>");
+	document.write(typeof (b + b));
+	document.write("<p>&nbsp</p>");
+	var int;
+	for (int = 0; int < 100; int++) {
+		int = int + int;
+	}
+	document.write(int);
+	var str3 = "javascript";
+	document.write(str3.substring(1, 6));
+	for (var i = 0; i < 9; i++) {
+		for (var j = 0; j < 9; j++) {
+			for (var k = 0; k < 9; k++) {
+				var sum = Math.pow(i, 3) + Math.pow(j, 3) + Math.pow(k, 3);
+				var num = i * 100 + j * 10 + k;
+				if (sum == num) {
+					document.write(num + "<br>");
+				}
+			}
+		}
+	}
+	for (var int = 100; int < 1000; int++) {
+		var n1 = int.toString().substr(0, 1);
+		var n2 = int.toString().substr(1, 1);
+		var n3 = int.toString().substr(2, 1);
+		var a = Math.pow(n1, 3) + Math.pow(n2, 3) + Math.pow(n3, 3);
+		if (int == a) {
+			document.write(int);
+		}
+	}
+	// /^\s+/g /\s+/g  /^\s+|\s+$/g
+	var str5 = "javascript123";
+	document.write(str5.replace(/(\d+)|(\w+)/g,
+			'<span style="color:green">$2</span>'));
+	var str6 = "4/8/2015";
+	var a = str6.split("/");
+	var d;
+	d = a[0];
+	a[0] = a[2];
+	a[0] = d;
+	document.write("<br>" + a.reverse().join("-"));
+	//for(var i=arr.length-1;i>=0;i--){ document.write(a[i])}
+	var time = new Date();
+	document.write("<br>" + time.getTime());
+	function add(num1, num2) {
+		return num1 + num2;
+	}
+	document.write("<br>" + add(5, 7));
+	function avg() {
+	     var count=arguments.length;
+		if (count < 2) {
+			return false;
+		}else{
+		  var sum=0;
+		  for(var i=0;i<count-1;i++){
+		  sum+=arguments[i];
+		  }
+		  return (sum);
+		  
+		}
+	}
+	function changeAttr(){
+	 var e=document.getElementById("p1");
+	  e.setAttribute("align", "center");
+	}
+	function createImg() {
+		var img=document.createElement("image");
+		img.setAttribute("src", "F:/html/Wall.png");
+		document.getElementById("p1").appendChild(img);
+	}
+</script>
+</head>
+
+<body>
+<p id="p1" onclick ="createImg()">111</p>
+<input type="button" value="123" onclick="changeAttr()"/>
+<input type="button" value="123" onload="createImg()"/>
+<i></i>
+</body>
+</html>

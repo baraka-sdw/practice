@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>08.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+	<head>
+		<title>08.xhtml</title>
+		<meta name="keywords" content="enter,your,keywords,here"/>
+		<meta name="description" content="A short description of this page."/>
+		<meta name="content-type" content="text/html; charset=gbk"/>
+		<style type="text/css">
+		#mask{
+		    position:absolute;
+			background:#000;
+			opacity:0.1;
+			top:0px;
+			left:0px;
+			filter:alpha(opacity=60);
+			zIndex:9999; 
+		}
+		#maskText{
+		width:400px;
+		height:250px;
+		position: absolute;
+		z-index: 99999;
+		background-color:#fff;
+		}
+		.confirmTitle{
+		  line-height:2.5em;
+		  font-size:14px;
+		  color: #fff;
+		  background: #0D286D;
+		  margin: 2px 2px 0px 2px;
+		}
+		</style>
+        <script type="text/javascript">
+        function deleteMail() {
+			//计算“遮罩层”的高度
+			var height =Math.max(document.body.scrollHeight,document.body.scrollHeight);
+			//计算遮罩层的宽度
+			var width=Math.max(document.documentElement.scrollWidth,document.body.scrollWidth);
+			//动态的创建“遮罩层”（div对象）
+			var divEle=document.createElement("div");
+			divEle.style.width=width+'px';
+	        divEle.style.height=height+'px';
+			//设置“遮罩层”的css样式
+			divEle.id="mask";
+			document.body.appendChild(divEle);
+			
+			var newdiv=document.createElement("div");
+			newdiv.id="maskText";
+			newdiv.style.top="100px";
+			newdiv.style.left=Math.ceil((width-400)/2)+'px';
+			newdiv.innerHTML+='<h1 class="confirmTitle">确认对话框</h1></br>';
+			document.body.appendChild(newdiv);
+		}
+		function closeMail() {
+			var divEle=document.getElementById("a2");
+			divEle.id="mask";
+			
+		
+		}
+        </script>
+        
+    </head>
+	<body>
+	<input type="button" value="打开" onclick="deleteMail()"/>
+	<input type="button" value="关闭" onclick="closeMail()"/>
+	</body>
+</html>

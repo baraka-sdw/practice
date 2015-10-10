@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>11.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    <script type="text/javascript" src="F:/html/json.js"></script>
+    <script type="text/javascript">
+    var i=9;
+    
+    var i1=window.setInterval(init, 1000);
+    function init() {
+       var btn=document.getElementById("1");
+		btn.value="我同意"+"("+i+")";
+		i--;
+		if(i==-1){
+		btn.value="我同意";
+		window.clearInterval(i1);
+		btn.disabled=false;
+		}
+	}
+	function redirect() {
+		var inputEle=document.getElementById("page");
+		if(event.keyCode==13){
+		location.href="1.html";
+		}
+	}
+	var json={
+	     "username":"jerry",
+	     "age":26,
+	     "salary":5600,
+	     "mobiles":["110","911","114","115"]
+	     
+	};
+	alert(json.toJSONString());
+    </script>
+
+  </head>
+  
+  <body>
+  <table  ></table>
+  <div onclick="alert(123)">1234<p onclick="event.cancelBubble=true;alert('取消冒泡')">123</p></div>
+   跳转到<input type="text" onkeypress="redirect()" id="page">页
+  <td align="center"><input type="button" onload="init()" value="同意(10)" disabled="disabled" id="1" onclick="redirecURL()"></td>
+  </body>
+</html>

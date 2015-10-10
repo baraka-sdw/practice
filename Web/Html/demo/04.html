@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>04.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="content-type" content="text/html; charset=gbk">
+    <script type="text/javascript">
+    function delete1(){
+     var d=document.getElementById("1");
+     document.body.removeChild(d);
+    }
+    function  clearBox() {
+		var boxEle=document.getElementById("box");
+		for (var int = 0; int < boxEle.childNodes.length; int++) {
+		boxEle.removeChild(boxEle.childNodes[int]);
+		
+		}
+	}
+    </script>
+    
+  </head>
+  
+  <body>
+  <p id="1">1111</p>
+   <div id="box" style="height:150px;border: 1px solid #f00;">
+  <p>我是段落</p>
+  <h1>我是标题</h1>
+  </div>
+  <input type="button" onclick="clearBox()" />
+  </body>
+</html>

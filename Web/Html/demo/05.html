@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>05.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+ <script >
+if (document.all){
+Cols=6;
+Cs=10;
+Ts=10;
+Tc='#008800';
+Tc1='#00ff00';
+MnS=20;
+MxS=30;
+I=Cs;
+Sp=new Array();S=new Array();Y=new Array();
+C=new Array();M=new Array();B=new Array();
+RC=new Array();E=new Array();Tcc=new Array(0,1);
+document.write("<div id='Container' style='position:absolute;top:0;left:-"+Cs+"'>");
+document.write("<div style='position:relative'>");
+for(var i=0; i < Cols; i++){
+S[i]=I+=Cs;
+document.write("<div id='A' style='position:absolute;top:0;font-family:Arial;font-size:"
++Ts+"px;left:"+S[i]+";width:"+Ts+"px;height:0px;color:"+Tc+";visibility:hidden'></div>");
+}
+document.write("</div></div>");
+
+for(var j=0; j < Cols; j++){
+RC[j]=1+Math.round(Math.random()*Cl);  
+Y[j]=0;
+Sp[j]=Math.round(MnS+Math.random()*MxS); 
+for(var i=0; i < RC[j]; i++){
+ B[i]='';
+ C[i]=Math.round(Math.random()*1)+' ';
+ M[j]=B[0]+=C[i];
+ }
+}
+function Cycle(){
+Container.style.top=window.document.body.scrollTop;
+for (var i=0; i < Cols; i++){
+var r = Math.floor(Math.random()*Tcc.length);
+E[i] = '<font color='+Tc1+'>'+Tcc[r]+'</font>';
+Y[i]+=Sp[i];
+
+if (Y[i] > window.document.body.clientHeight){
+ for(var i2=0; i2 < Cols; i2++){
+ RC[i2]=1+Math.round(Math.random()*Cl);  
+ for(var i3=0; i3 < RC[i2]; i3++){
+ B[i3]='';
+ C[i3]=Math.round(Math.random()*1)+' ';
+ C[Math.floor(Math.random()*i2)]='&nbsp;'+' ';
+ M[i]=B[0]+=C[i3];
+ Y[i]=-Ts*M[i].length/1.5;
+ A[i].style.visibility='visible';
+ }
+ Sp[i]=Math.round(MnS+Math.random()*MxS);
+ }
+}
+A[i].style.top=Y[i];
+A[i].innerHTML=M[i]+' '+E[i]+' ';
+}
+setTimeout('Cycle()',20);
+}
+Cycle();
+}
+
+</script>
+<style type="text/css">
+body {
+	background-color: black;
+}
+</style>
+  </head>
+  
+  <body>
+  
+  </body>
+</html>

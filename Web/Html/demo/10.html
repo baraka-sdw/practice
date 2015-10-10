@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    <script type="text/javascript">
+    window.setTimeout(ctlbox_click,3000);
+    function ctlbox_click() {
+		var ckEle=document.getElementById("ctlbox");
+		var ckStatus=ckEle.checked;
+        var cboxs=document.getElementsByName("cbox");
+        var counts=cboxs.length;
+         for (var int = 0; int <counts;  int++) {
+         var cbox = cboxs[int];
+         cbox.checked=ckStatus;
+        }
+	}
+	
+    </script>
+
+  </head>
+  
+  <body>
+  <form action="" name="form1" method="get"> 
+  <table cellpadding="10" cellspacing="0" border="">
+  <tr>
+  <td><input type="checkbox" name="ctlbox" id="ctlbox" value="1"  onclick="ctlbox_click()">全选</td>
+   <td>邮件主题</td>
+      <td>发信人</td>
+  </tr>
+  <tr><td ><input type="checkbox" name="cbox" id="ctlbox" value="2"></td><td></td><td></td></tr>
+  <tr><td><input type="checkbox" name="cbox" id="ctlbox" value="3"></td><td></td><td></td></tr>
+  <tr><td><input type="checkbox" name="cbox" id="ctlbox" value="4"></td><td></td><td></td></tr>
+  </table>
+  </form>
+  </body>
+</html>

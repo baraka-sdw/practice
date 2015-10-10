@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>06</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="content-type" content="text/html; charset=gbk">
+    <script type="text/javascript">
+    function changeImg(){
+    var imageEle=document.getElementById("image");
+     var filename=imageEle.src.substr(imageEle.src.lastIndexOf('/')+1);
+     imageEle.src=filename=='Wall.png' ? 'Wall2.jpg':'Wall.png';
+    }
+    function  changeAttr() {
+    var table=document.getElementById("table");
+    table.width='400';
+    table.height='300';
+    table.border="4";
+    table.cellPadding="2";
+    table.cellSpacing="200";
+    
+	}
+	function changeClass() {
+		var pEle=document.getElementById("p1");
+		pEle.className='red';
+	}
+	function changeInlinestyle() {
+		var divEle=document.getElementById("box");
+		divEle.style.width='400px';
+	    divEle.style.height='400px';
+		divEle.style.border="2px solid green";
+		divEle.style.fontSize="200px";
+		divEle.style.textDecoration="underline";
+	}
+	function createTable() {
+		var tableEle=document.createElement("table");
+		tableEle.style.border="2px solid #66FF66";
+		tableEle.style.borderCollapse="collapse";
+		document.body.appendChild(tableEle);
+		for (var int = 0; int < 3; int++) {
+		var iRowIndex=tableEle.rows.length;
+		var tr=tableEle.insertRow(iRowIndex);
+		for (var int2 = 0; int2 < 3; int2++) {
+		 var td=tr.insertCell(0);
+		  td.style.borderBottom="2px solid #66FF66";
+		  td.style.borderRight="2px solid #66FF66";
+		  td.innerHTML="<i>666</i>";
+		  }
+		}
+	}
+	 function add() {
+			var proEle=document.getElementById("sl");
+			var option1=new Option("a","1");
+			proEle.add(option1);
+		}
+		function remove() {
+		 var proEle=document.getElementById("sl");
+		  proEle.remove(proEle.length-1);	
+		} 	
+    </script>
+    <style type="text/css">.red{color:#66FF66};</style>
+  </head>
+  <body>
+   <table id="table">
+   <tr>
+   <td>123</td>
+   </tr>
+   </table>
+  <img alt="" src="Wall.png" width="50px" id="image">
+  <input type="button" onclick="changeImg()" value="更改图片"/>
+  <input onclick="changeAttr()" type="button" value="设置表格属性"/>
+  <p id="p1">123</p>
+  <input type="button" value="css类" onclick="changeClass()">
+  <div id="box">132</div>
+  <button value="设置div内联样式" onclick="changeInlinestyle()" ></button>
+  <input type="button" onclick="createTable()" value="123">
+  <select id="sl"></select>
+  <input type="button" onclick="add()" value="添加成员" />
+  <input type="button" onclick="remove()" value="添加成员" />
+  </body>
+</html>
